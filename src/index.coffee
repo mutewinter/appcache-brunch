@@ -41,24 +41,17 @@ class Walker
             callback filePath
 
 
-class Manifest
+class Sha
   constructor: (@config) ->
-
-    if 'appcache' of @config
-      console.warn 'Warning: config.appcache is deprecated, please move it to config.plugins.appcache'
 
     # Defaults options
     @options = {
+      shaFile: 'sha'
       ignore: /[\\/][.]/
-      externalCacheEntries: []
-      network: ['*']
-      fallback: {}
-      staticRoot: '.'
-      manifestFile: 'appcache.appcache'
     }
 
     # Merge config
-    cfg = @config.plugins?.appcache ? @config.appcache ? {}
+    cfg = @config.plugins?.sha ? {}
     @options[k] = cfg[k] for k of cfg
 
   brunchPlugin: true
@@ -67,7 +60,7 @@ class Manifest
     paths = []
     walker = new Walker
     walker.walk @config.paths.public, (path) =>
-      paths.push path unless /[.]appcache$/.test(path) or @options.ignore.test(path)
+      paths.push path unless @options.ignore.test(path)
       unless walker.walking
         shasums = []
         paths.sort()
@@ -86,22 +79,8 @@ class Manifest
   format = (obj) ->
     ("#{k} #{obj[k]}" for k in Object.keys(obj).sort()).join('\n')
 
-  write: (paths, shasum) ->
-    fs.writeFileSync pathlib.join(@config.paths.public, @options.manifestFile),
-    """
-      CACHE MANIFEST
-      # #{shasum}
+  write: (shasum) ->
+    fs.writeFileSync pathlib.join(@config.paths.public, @options.shaFile),
+      shasum
 
-      NETWORK:
-      #{@options.network.join('\n')}
-
-      FALLBACK:
-      #{format @options.fallback}
-
-      CACHE:
-      #{("#{@options.staticRoot}/#{p}" for p in paths).join('\n')}
-      #{@options.externalCacheEntries.join('\n')}
-    """
-
-
-module.exports = Manifest
+module.exports = Sha

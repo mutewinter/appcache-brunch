@@ -1,21 +1,20 @@
-# appcache-brunch
+# brunch-sha
 
-[Brunch][1] plugin which generates a [cache manifest][2] as part of the
-`brunch build` process.
+[Brunch][1] plugin which generates a sha sum file as part of the `brunch build`
+process.
 
 [1]: http://brunch.io
-[2]: https://developer.mozilla.org/en-US/docs/HTML/Using_the_application_cache#The_cache_manifest_file
 
 ## Usage
 
-Install the plugin via npm with `npm install --save appcache-brunch`.
+Install the plugin via npm with `npm install --save brunch-sha`.
 
 Or, do manual install:
 
-* Add `"appcache-brunch": "x.y.z"` to `package.json` of your brunch app.
+* Add `"brunch-sha": "x.y.z"` to `package.json` of your brunch app.
   Pick a plugin version that corresponds to your minor (y) brunch version.
 * If you want to use git version of plugin, add
-`"appcache-brunch": "git+ssh://git@github.com:brunch/appcache-brunch.git"`.
+`"brunch-sha": "git+ssh://git@github.com:mutewinter/brunch-sha.git"`.
 
 Specify [plugin settings](#settings) in config.coffee. For example:
 
@@ -23,87 +22,34 @@ Specify [plugin settings](#settings) in config.coffee. For example:
 exports.config =
   # ...
   plugins:
-    appcache:
-      staticRoot: '/static'
-      network: ['*']
-      fallback: {}
-```
-
-Link to the manifest from each template. For example:
-
-```html
-<html manifest="/static/appcache.appcache">
+    sha:
+      shaFile: 'sha'
+      ignore: /[\\/][.]/
 ```
 
 ## Settings
 
-### appcache.staticRoot
-
-The static media root, such as ".", "/static" or "http://static.example.com".
-
-Default value : `'.'`
-
 ### appcache.ignore
 
-A regular expression specifying paths to omit from the manifest.
+A regular expression specifying paths to omit from the sha sum.
 
 Default value : `/[/][.]/` (hidden files and files in hidden directories are ignored)
 
-### appcache.externalCacheEntries
-
-An array of additionals URIs added to `CACHE` section. For example:
-
-```coffeescript
-externalCacheEntries: [
-  'http://other.example.org/image.jpg'
-  # ...
-]
-```
-
-Default value : `[]`
-
-### appcache.network
-
-An array of resource URIs which require a network connection added to `NETWORK` section. For example:
-
-```coffeescript
-network: [
-  'login.php'
-  '/myapi'
-  'http://api.twitter.com'
-]
-```
-
-Default value : `["*"]`
-
-### appcache.fallback
-
-An object mapping resource URIs to fallback URIs added to `FALLBACK` section. For example:
-
-```coffeescript
-fallback:
-  '/main.py': '/static.html'
-  'images/large/': 'images/offline.jpg'
-  '*.html': '/offline.html'
-```
-
-Default value : `{}`
-
-### appcache.manifestFile
+### appcache.shaFile
 
 Output filename. For example:
 
 ```coffeescript
-manifestFile: "appcache.appcache"
+shaFile: "app.sha"
 ```
 
-Default value : `"appcache.appcache"`
+Default value : `"sha"`
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2012-2013 Paul Miller (http://paulmillr.com)
+Copyright (c) 2013 Jeremy Mack @mutewinter
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

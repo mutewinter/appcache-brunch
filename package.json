@@ -1,12 +1,12 @@
 {
-  "name": "appcache-brunch",
-  "version": "1.7.1",
-  "description": "Adds HTML5 .appcache generation to brunch.",
-  "author": "Paul Miller (http://paulmillr.com/)",
-  "homepage": "https://github.com/brunch/appcache-brunch",
+  "name": "brunch-sha",
+  "version": "0.1.0",
+  "description": "Adds a sha sum file after compiling.",
+  "author": "Jeremy Mack @mutewinter",
+  "homepage": "https://github.com/mutewinter/brunch-sha",
   "repository": {
     "type": "git",
-    "url": "git@github.com:brunch/appcache-brunch.git"
+    "url": "git@github.com:mutewinter/brunch-sha.git"
   },
   "main": "./lib/index",
   "scripts": {
