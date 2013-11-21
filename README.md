@@ -1,6 +1,6 @@
 # brunch-signature
 
-[Brunch][] plugin which generates a unique signature as part of the `brunch
+[Brunch][] plugin that generates a unique signature as part of the `brunch
 build` process. The signature changes whenever any file in the project is
 modified.
 
