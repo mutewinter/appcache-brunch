@@ -41,17 +41,17 @@ class Walker
             callback filePath
 
 
-class Sha
+class Signature
   constructor: (@config) ->
 
     # Defaults options
     @options = {
-      shaFile: 'sha'
+      file: 'sha'
       ignore: /[\\/][.]/
     }
 
     # Merge config
-    cfg = @config.plugins?.sha ? {}
+    cfg = @config.plugins?.signature ? {}
     @options[k] = cfg[k] for k of cfg
 
   brunchPlugin: true
@@ -79,7 +79,7 @@ class Sha
     ("#{k} #{obj[k]}" for k in Object.keys(obj).sort()).join('\n')
 
   write: (shasum) ->
-    fs.writeFileSync pathlib.join(@config.paths.public, @options.shaFile),
+    fs.writeFileSync pathlib.join(@config.paths.public, @options.file),
       shasum
 
 module.exports = Sha

@@ -1,2 +1,2 @@
-# brunch-sha 0.1.0 November 20th, 2013
+# brunch-signature 0.1.0 November 21th, 2013
 * Initial release

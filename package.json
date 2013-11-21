@@ -1,21 +1,17 @@
 {
-  "name": "brunch-sha",
+  "name": "brunch-signature",
   "version": "0.1.0",
-  "description": "Adds a sha sum file after compiling.",
+  "description": "A Brunch plugin which generates a unique signature as part of the brunch build process.",
   "author": "Jeremy Mack @mutewinter",
-  "homepage": "https://github.com/mutewinter/brunch-sha",
+  "homepage": "https://github.com/mutewinter/brunch-signature",
   "repository": {
     "type": "git",
-    "url": "git@github.com:mutewinter/brunch-sha.git"
+    "url": "git@github.com:mutewinter/brunch-signature.git"
   },
   "main": "./lib/index",
   "scripts": {
-    "prepublish": "rm -rf lib && coffee --bare --output lib/ src/",
-    "test": "node_modules/.bin/mocha --require test/common.js"
+    "prepublish": "rm -rf lib && coffee --bare --output lib/ src/"
   },
   "dependencies": { },
-  "devDependencies": {
-    "mocha": "1.11.0",
-    "chai": "1.7.0"
-  }
+  "devDependencies": { }
 }

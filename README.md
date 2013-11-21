@@ -1,49 +1,53 @@
-# brunch-sha
+# brunch-signature
 
-[Brunch][1] plugin which generates a sha sum file as part of the `brunch build`
-process.
+[Brunch][] plugin which generates a unique signature as part of the `brunch
+build` process. The signature changes whenever any file in the project is
+modified.
 
-[1]: http://brunch.io
+I am using brunch-signature to alert users when a new version of the app has
+been deployed. I Ajax poll `/signature` and check for a difference form the
+value when the app first started. When it's different, I show a banner telling
+the user to refresh.
 
 ## Usage
 
-Install the plugin via npm with `npm install --save brunch-sha`.
+Install the plugin via npm with `npm install --save brunch-signature`.
 
 Or, do manual install:
 
-* Add `"brunch-sha": "x.y.z"` to `package.json` of your brunch app.
+* Add `"brunch-signature": "x.y.z"` to `package.json` of your brunch app.
   Pick a plugin version that corresponds to your minor (y) brunch version.
 * If you want to use git version of plugin, add
-`"brunch-sha": "git+ssh://git@github.com:mutewinter/brunch-sha.git"`.
+`"brunch-signature": "git+ssh://git@github.com:mutewinter/brunch-signature.git"`.
 
-Specify [plugin settings](#settings) in config.coffee. For example:
+_Optional_ Specify [plugin settings](#settings) in config.coffee. For example:
 
 ```coffeescript
 exports.config =
   # ...
   plugins:
-    sha:
-      shaFile: 'sha'
+    signature:
+      file: 'signature'
       ignore: /[\\/][.]/
 ```
 
 ## Settings
 
-### appcache.ignore
+### signature.ignore
 
-A regular expression specifying paths to omit from the sha sum.
+A regular expression specifying paths to omit from the signature.
 
 Default value : `/[/][.]/` (hidden files and files in hidden directories are ignored)
 
-### appcache.shaFile
+### signature.file
 
 Output filename. For example:
 
 ```coffeescript
-shaFile: "app.sha"
+file: "app.signature"
 ```
 
-Default value : `"sha"`
+Default value : `"signature"`
 
 ## License
 
@@ -68,3 +72,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+[Brunch]: http://brunch.io
