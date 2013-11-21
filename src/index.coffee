@@ -82,4 +82,4 @@ class Signature
     fs.writeFileSync pathlib.join(@config.paths.public, @options.file),
       shasum
 
-module.exports = Sha
+module.exports = Signature
