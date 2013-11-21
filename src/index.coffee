@@ -73,8 +73,7 @@ class Sha
             if shasums.length is paths.length
               shasum = crypto.createHash 'sha1'
               shasum.update shasums.sort().join(), 'ascii'
-              @write((pathlib.relative @config.paths.public, p for p in paths),
-                     shasum.digest 'hex')
+              @write(shasum.digest 'hex')
 
   format = (obj) ->
     ("#{k} #{obj[k]}" for k in Object.keys(obj).sort()).join('\n')
