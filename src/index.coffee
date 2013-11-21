@@ -46,7 +46,7 @@ class Signature
 
     # Defaults options
     @options = {
-      file: 'sha'
+      file: 'signature'
       ignore: /[\\/][.]/
     }
 
