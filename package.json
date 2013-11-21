@@ -1,6 +1,6 @@
 {
   "name": "brunch-signature",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A Brunch plugin which generates a unique signature as part of the brunch build process.",
   "author": "Jeremy Mack @mutewinter",
   "homepage": "https://github.com/mutewinter/brunch-signature",
