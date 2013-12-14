@@ -16,7 +16,6 @@ Install the plugin via npm with `npm install --save brunch-signature`.
 Or, do manual install:
 
 * Add `"brunch-signature": "x.y.z"` to `package.json` of your brunch app.
-  Pick a plugin version that corresponds to your minor (y) brunch version.
 * If you want to use git version of plugin, add
 `"brunch-signature": "git+ssh://git@github.com:mutewinter/brunch-signature.git"`.
 
