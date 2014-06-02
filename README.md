@@ -1,4 +1,4 @@
-# brunch-signature
+# brunch-signature [![NPM Version][npm-badge]][npm] [![Dependency Status][gemnasium-badge]][gemnasium]
 
 [Brunch][] plugin that generates a unique signature as part of the `brunch
 build` process. The signature changes whenever any file in the project is
@@ -73,3 +73,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 [Brunch]: http://brunch.io
+[npm]: https://npmjs.org/package/brunch-signature
+[npm-badge]: http://img.shields.io/npm/v/brunch-signature.svg?style=flat
+[gemnasium]: https://gemnasium.com/mutewinter/brunch-signature
+[gemnasium-badge]: https://img.shields.io/gemnasium/mutewinter/brunch-signature.svg?style=flat
